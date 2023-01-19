@@ -1,40 +1,21 @@
-import { useState, useEffect } from 'react';
-
-import MovCard from './Components/MovCard';
-
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Title from './pages/Title';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-// key: 40f5ebcb
-
-const apiUrl = 'http://omdbapi.com?apikey=40f5ebcb'
-
 function App() {
-
-  const [films, setFilms] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
-
-  const findMovies = async (title) => {
-    const response = await fetch(`${apiUrl}&s=${title}`);
-    const data = await response.json();
-
-    setFilms(data.Search);
-  }
-
-  useEffect(() => {
-    findMovies('batman')
-  }, []);
-  
+    
   return (
-    <div className="App">
-      <h1>JMDB</h1>
-      <input placeholder='Search for movie or tv show' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
-      <button onClick={() => findMovies(searchInput)}>Sök</button>
-      <div>
-        {films.map((movie) => {
-          return <MovCard par={movie} key={movie.imdbID} />
-        })}
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<Search />} />
+          <Route path="search" element={<Search />} />
+          <Route path="title" element={<Title />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
