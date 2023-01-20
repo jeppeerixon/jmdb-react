@@ -1,0 +1,24 @@
+$dark-color: #041C32;
+$mid-color: #04293A;
+$light-color: #064663;
+$highlight-color: #ECB365;
+
+
+body {
+  background-color: $dark-color;
+  color: white;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.searchCard {
+  background-color: rgba($color: $mid-color, $alpha: 0.75);
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px black;
+}

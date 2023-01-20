@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 
 const Title = () => {
-  
   const location = useLocation();
 
   // get userId
@@ -12,6 +11,6 @@ const Title = () => {
   <h1>Title</h1>
   <p> { movieID }</p>
   </>
-  )}; 
-   
-  export default Title;
+)};
+  
+export default Title;

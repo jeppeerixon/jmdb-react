@@ -24,14 +24,16 @@ function Search() {
   
   return (
     <div className="Search">
-      <h1>JMDB</h1>
-      <input placeholder='Search for movie or tv show' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
-      <button onClick={() => findMovies(searchInput)}>Sök</button>
-      <div>
-        {films.map((movie) => {
-          return <MovCard par={movie} key={movie.imdbID} />
-        })}
-      </div>
+        <header>
+            <h1>JMDB</h1>
+            <input placeholder='Search for movie or tv show' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}></input>
+            <button onClick={() => findMovies(searchInput)}>Sök</button>
+        </header>
+        <div>
+            {films.map((movie) => {
+            return <MovCard par={movie} key={movie.imdbID} />
+            })}
+        </div>
     </div>
   );
 }
