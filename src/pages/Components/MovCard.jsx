@@ -7,6 +7,7 @@ const MovCard = ({ par }) => {
 
     const navigateToTitle = (e) => {
         let movieID = e.target.value;
+        console.log(movieID);
         navigate('/title', {
             state: {
               movieId: movieID,
